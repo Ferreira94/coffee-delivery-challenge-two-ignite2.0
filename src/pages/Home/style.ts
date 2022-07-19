@@ -20,7 +20,7 @@ export const HomeContainer = styled.div`
 
   section {
     max-width: 60%;
-    margin: 5.875rem 0;
+    margin: 5.875rem auto;
 
     h2 {
       font-size: 2.5rem;
@@ -35,16 +35,55 @@ export const HomeContainer = styled.div`
     }
   }
 
+  img {
+    max-width: 40%;
+  }
+
   @media ${(props) => props.theme.desktop} {
     flex-direction: column-reverse;
 
     section {
-      margin: 2rem 0;
+      max-width: 100%;
+      margin: 2rem auto;
+    }
+
+    img {
+      max-width: 100%;
     }
   }
 
-  img {
-    max-width: 40%;
+  @media ${(props) => props.theme.laptop} {
+    section {
+      text-align: center;
+
+      h2 {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.25rem;
+        margin-top: 0.5rem;
+      }
+    }
+  }
+
+  @media ${(props) => props.theme.mobile} {
+    section {
+      margin-top: 1rem;
+
+      h2 {
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+        line-height: 1rem;
+        margin-top: 0.5rem;
+      }
+    }
   }
 `;
 
@@ -54,6 +93,10 @@ export const InfoContainer = styled.div`
   gap: 1.25rem;
   flex-wrap: wrap;
   margin-top: 3rem;
+
+  @media ${(props) => props.theme.mobile} {
+    margin-top: 1.5rem;
+  }
 `;
 
 export const InfoItem = styled.div<IStatusProps>`
@@ -77,5 +120,13 @@ export const InfoItem = styled.div<IStatusProps>`
   span {
     font-size: 1rem;
     color: ${(props) => props.theme["gray-700"]};
+  }
+
+  @media ${(props) => props.theme.mobile} {
+    min-width: 100%;
+
+    span {
+      font-size: 0.8rem;
+    }
   }
 `;
