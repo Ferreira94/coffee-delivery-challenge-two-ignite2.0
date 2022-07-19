@@ -6,6 +6,10 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 2rem 0;
+
+  @media ${(props) => props.theme.mobile} {
+    padding: 1rem 0;
+  }
 `;
 
 export const CartContainer = styled.div`
@@ -20,11 +24,19 @@ export const CartContainer = styled.div`
     align-items: center;
     cursor: pointer;
 
+    @media ${(props) => props.theme.mobile} {
+      padding: 0.325rem;
+    }
+
     &:first-child {
       gap: 0.25rem;
       font-size: 0.875rem;
       color: ${(props) => props.theme["purple-700"]};
       background-color: ${(props) => props.theme["purple-300"]};
+
+      @media ${(props) => props.theme.mobile} {
+        font-size: 0.625rem;
+      }
     }
 
     &:last-child {
