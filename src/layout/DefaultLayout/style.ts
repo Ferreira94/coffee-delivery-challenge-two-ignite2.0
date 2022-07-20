@@ -10,6 +10,10 @@ export const LayoutContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  @media ${(props) => props.theme.desktop} {
+    padding: 0 4rem;
+  }
+
   @media ${(props) => props.theme.laptop} {
     padding: 0 2rem;
   }

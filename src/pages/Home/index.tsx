@@ -1,50 +1,29 @@
-import { HomeContainer, InfoContainer, InfoItem } from "./style";
-import { Coffee, Package, ShoppingCart, Timer } from "phosphor-react";
+import { HomeContainer, CoffeeContainer } from "./style";
 
-import imgBanner from "/assets/banner.svg";
+import { Introduction, Card } from "../../components";
+import { coffee } from "../../utils";
 
 export function Home() {
   return (
     <HomeContainer>
+      <Introduction />
+
       <section>
-        <h2>Encontre o café perfeito para qualquer hora do dia</h2>
-        <p>
-          Com o Coffee Delivery você recebe seu café onde estiver, a qualquer
-          hora
-        </p>
+        <h2>Nossos cafés</h2>
 
-        <InfoContainer>
-          <InfoItem statusColor="gold">
-            <div>
-              <ShoppingCart />
-            </div>
-            <span>Compra simples e segura</span>
-          </InfoItem>
-
-          <InfoItem statusColor="gray">
-            <div>
-              <Package />
-            </div>
-            <span>Embalagem mantém o café intacto</span>
-          </InfoItem>
-
-          <InfoItem statusColor="yellow">
-            <div>
-              <Timer />
-            </div>
-            <span>Entrega rápida e rastreada</span>
-          </InfoItem>
-
-          <InfoItem statusColor="purple">
-            <div>
-              <Coffee />
-            </div>
-            <span>O café chega fresquinho até você</span>
-          </InfoItem>
-        </InfoContainer>
+        <CoffeeContainer>
+          {coffee.map((item) => (
+            <Card
+              key={item.id}
+              title={item.title}
+              img={item.img}
+              description={item.description}
+              label={item.label}
+              value={item.value}
+            />
+          ))}
+        </CoffeeContainer>
       </section>
-
-      <img src={imgBanner} alt="" />
     </HomeContainer>
   );
 }
