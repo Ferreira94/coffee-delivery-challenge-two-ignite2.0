@@ -16,15 +16,20 @@ export const CardContainer = styled.div`
     margin-bottom: 0.75rem;
   }
 
-  span {
-    font-size: 0.625rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    padding: 0.25rem 0.5rem;
-    background-color: ${(props) => props.theme["yellow-300"]};
-    color: ${(props) => props.theme["yellow-500"]};
-    border-radius: 1rem;
+  div {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 1.5rem;
+
+    span {
+      font-size: 0.625rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0.25rem 0.5rem;
+      background-color: ${(props) => props.theme["yellow-300"]};
+      color: ${(props) => props.theme["yellow-500"]};
+      border-radius: 1rem;
+    }
   }
 
   strong {
@@ -35,7 +40,7 @@ export const CardContainer = styled.div`
   }
 
   p {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     text-align: center;
     font-size: 0.875rem;
     color: ${(props) => props.theme["gray-600"]};
