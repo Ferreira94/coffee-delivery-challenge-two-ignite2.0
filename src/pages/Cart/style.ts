@@ -10,15 +10,14 @@ export const CartContainer = styled.main`
   }
 
   section {
-    padding: 2.5rem;
+    padding: 1.5rem;
     background-color: ${(props) => props.theme["gray-100"]};
-    margin-top: 1rem;
-    margin-bottom: 0.825rem;
+    margin: 1rem 0;
   }
 `;
 
 export const AddressContainer = styled.main`
-  width: 40rem;
+  width: 38rem;
 
   div {
     &:first-child {
@@ -39,7 +38,13 @@ export const AddressContainer = styled.main`
   }
 `;
 
-export const ProductsContainer = styled.main``;
+export const ProductsContainer = styled.main`
+  flex: 1;
+
+  section {
+    border-radius: 0.375rem 2.75rem;
+  }
+`;
 
 export const ContainerInputs = styled.div`
   div {
@@ -98,4 +103,47 @@ export const StateInput = styled(BaseInput)`
 export const PaymentContainer = styled.div`
   display: flex;
   gap: 0.75rem;
+`;
+
+export const Line = styled.div`
+  margin: 2rem 0;
+  width: 100%;
+  height: 1px;
+  background-color: ${(props) => props.theme["gray-400"]};
+`;
+
+export const TotalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      font-size: 0.875rem;
+      color: ${(props) => props.theme["gray-700"]};
+    }
+
+    p {
+      color: ${(props) => props.theme["gray-700"]};
+    }
+  }
+  button {
+    width: 100%;
+    min-height: 2.875rem;
+    border: 0;
+    border-radius: 0.625rem;
+    background-color: ${(props) => props.theme["yellow-700"]};
+    color: ${(props) => props.theme.white};
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 `;

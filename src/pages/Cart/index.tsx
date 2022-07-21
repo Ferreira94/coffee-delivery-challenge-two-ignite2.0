@@ -1,6 +1,7 @@
 import { CurrencyDollar, MapPin } from "phosphor-react";
 import { useState } from "react";
-import { PaymentCard } from "../../components";
+import { CartCard, PaymentCard } from "../../components";
+import { coffee } from "../../utils";
 
 import {
   CartContainer,
@@ -13,6 +14,8 @@ import {
   StateInput,
   ContainerInputs,
   PaymentContainer,
+  Line,
+  TotalContainer,
 } from "./style";
 
 export function Cart() {
@@ -82,7 +85,37 @@ export function Cart() {
 
       <ProductsContainer>
         <strong>Cafés selecionados</strong>
-        <section></section>
+        <section>
+          <CartCard
+            title={coffee[0].title}
+            img={coffee[0].img}
+            value={coffee[0].value}
+          />
+          <Line />
+          <CartCard
+            title={coffee[1].title}
+            img={coffee[1].img}
+            value={coffee[1].value}
+          />
+          <Line />
+
+          <TotalContainer>
+            <div>
+              <span>Total de itens</span>
+              <p>R$ 29,70</p>
+            </div>
+            <div>
+              <span>Entrega</span>
+              <p>R$ 3,50</p>
+            </div>
+            <div>
+              <strong>Total</strong>
+              <strong>R$ 33,20</strong>
+            </div>
+
+            <button>Confirmar pedido</button>
+          </TotalContainer>
+        </section>
       </ProductsContainer>
     </CartContainer>
   );
