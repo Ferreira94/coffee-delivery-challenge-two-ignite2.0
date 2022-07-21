@@ -21,7 +21,7 @@ export const CardContainer = styled.div`
     gap: 0.3rem;
     margin-bottom: 1.5rem;
 
-    span {
+    label {
       font-size: 0.625rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -87,10 +87,11 @@ export const CountContainer = styled.div`
   }
 
   span {
+    font-weight: 700;
+    padding: 0.25rem 0.5rem;
     font-size: 1rem;
-    margin-bottom: 0;
-    background: none;
     color: ${(props) => props.theme["purple-500"]};
+    background-color: ${(props) => props.theme["purple-300"]};
     cursor: pointer;
   }
 `;
