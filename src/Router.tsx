@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { DefaultLayout } from "./layout/DefaultLayout";
 
-import { Home, Cart } from "./pages";
+import { Home, Cart, Confirm } from "./pages";
 
 export function Router() {
   return (
@@ -9,6 +9,7 @@ export function Router() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/confirm" element={<Confirm />} />
       </Route>
     </Routes>
   );

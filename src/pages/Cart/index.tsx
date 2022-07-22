@@ -1,5 +1,6 @@
 import { CurrencyDollar, MapPin } from "phosphor-react";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { CartCard, PaymentCard } from "../../components";
 import { coffee } from "../../utils";
 
@@ -113,7 +114,9 @@ export function Cart() {
               <strong>R$ 33,20</strong>
             </div>
 
-            <button>Confirmar pedido</button>
+            <NavLink to="/confirm">
+              <button>Confirmar pedido</button>
+            </NavLink>
           </TotalContainer>
         </section>
       </ProductsContainer>

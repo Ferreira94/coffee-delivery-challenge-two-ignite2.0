@@ -22,5 +22,5 @@ export const defaultTheme = {
   desktop: `(max-width: 1360px)`,
   desktopM: `(max-width: 1140px)`,
   laptop: `(max-width: 740px)`,
-  mobile: `(max-width: 470px)`,
+  mobile: `(max-width: 510px)`,
 };
