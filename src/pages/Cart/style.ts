@@ -45,13 +45,10 @@ export const AddressContainer = styled.main`
   @media ${(props) => props.theme.laptop} {
     width: 100%;
 
-    p {
-      margin-bottom: 1rem;
-    }
-
     div {
       &:first-child {
         margin-bottom: 0;
+        margin-top: 0.5rem;
       }
     }
   }
@@ -77,6 +74,7 @@ export const ContainerInputs = styled.div`
 
   @media ${(props) => props.theme.laptop} {
     flex-direction: column;
+    margin-top: 1rem;
 
     div {
       flex-direction: column;
@@ -86,6 +84,9 @@ export const ContainerInputs = styled.div`
       width: 100%;
       margin-left: 0;
     }
+  }
+
+  @media ${(props) => props.theme.mobile} {
   }
 `;
 
