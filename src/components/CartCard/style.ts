@@ -17,6 +17,12 @@ export const CardContainer = styled.div`
     font-weight: 700;
     font-size: 1rem;
   }
+
+  @media ${(props) => props.theme.mobile} {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
 `;
 
 export const CountContainer = styled.div`
@@ -59,4 +65,8 @@ export const InfoCard = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  @media ${(props) => props.theme.mobile} {
+    flex-direction: column;
+  }
 `;

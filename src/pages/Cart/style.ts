@@ -14,6 +14,11 @@ export const CartContainer = styled.main`
     background-color: ${(props) => props.theme["gray-100"]};
     margin: 1rem 0;
   }
+
+  @media ${(props) => props.theme.desktopM} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const AddressContainer = styled.main`
@@ -36,19 +41,51 @@ export const AddressContainer = styled.main`
       margin-top: 0.125rem;
     }
   }
+
+  @media ${(props) => props.theme.laptop} {
+    width: 100%;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    div {
+      &:first-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 `;
 
 export const ProductsContainer = styled.main`
   flex: 1;
+  width: 38rem;
 
   section {
     border-radius: 0.375rem 2.75rem;
+  }
+
+  @media ${(props) => props.theme.laptop} {
+    width: 100%;
   }
 `;
 
 export const ContainerInputs = styled.div`
   div {
     display: flex;
+  }
+
+  @media ${(props) => props.theme.laptop} {
+    flex-direction: column;
+
+    div {
+      flex-direction: column;
+    }
+
+    input {
+      width: 100%;
+      margin-left: 0;
+    }
   }
 `;
 
@@ -78,6 +115,7 @@ export const ContainerInput = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem;
+  border-radius: 0.25rem;
 
   input {
     background-color: ${(props) => props.theme["gray-400"]};
@@ -89,6 +127,18 @@ export const ContainerInput = styled.div`
     font-size: 0.75rem;
     color: ${(props) => props.theme["gray-600"]};
   }
+
+  @media ${(props) => props.theme.laptop} {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 1rem;
+
+    p {
+      position: relative;
+      top: -1.15rem;
+      left: 40%;
+    }
+  }
 `;
 
 export const CityInput = styled(BaseInput)`
@@ -98,11 +148,20 @@ export const CityInput = styled(BaseInput)`
 
 export const StateInput = styled(BaseInput)`
   width: 3.75rem;
+
+  @media ${(props) => props.theme.laptop} {
+    margin-top: 1rem;
+  }
 `;
 
 export const PaymentContainer = styled.div`
   display: flex;
   gap: 0.75rem;
+
+  @media ${(props) => props.theme.laptop} {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Line = styled.div`

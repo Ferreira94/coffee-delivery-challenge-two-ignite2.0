@@ -20,6 +20,7 @@ export const defaultTheme = {
   "purple-700": "#4B2995",
 
   desktop: `(max-width: 1360px)`,
+  desktopM: `(max-width: 1140px)`,
   laptop: `(max-width: 740px)`,
   mobile: `(max-width: 470px)`,
 };

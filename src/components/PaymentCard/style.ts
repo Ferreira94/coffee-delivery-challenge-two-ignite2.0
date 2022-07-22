@@ -20,6 +20,10 @@ export const ContainerCard = styled.div<ICardPaymentProps>`
   background-color: ${(props) => props.theme[IS_ACTIVE[props.active]]};
   border-radius: 0.375rem;
 
+  p {
+    margin: 0;
+  }
+
   svg {
     color: ${(props) => props.theme["purple-500"]};
   }
