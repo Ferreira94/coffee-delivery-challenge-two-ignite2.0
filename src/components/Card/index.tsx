@@ -17,9 +17,13 @@ export function Card({ title, img, label, description, value }: ICardProps) {
     <CardContainer>
       <img src={img} />
       <div>
-        <label>{label[0]}</label>
-        {label[1] && <label>{label[1]}</label>}
-        {label[2] && <label>{label[2]}</label>}
+        {label && (
+          <>
+            <label>{label[0]}</label>
+            {label[1] && <label>{label[1]}</label>}
+            {label[2] && <label>{label[2]}</label>}
+          </>
+        )}
       </div>
       <strong>{title}</strong>
       <p>{description}</p>
