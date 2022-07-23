@@ -60,6 +60,26 @@ export const ProductsContainer = styled.main`
 
   section {
     border-radius: 0.375rem 2.75rem;
+
+    div {
+      button {
+        width: 100%;
+        min-height: 2.875rem;
+        border: 0;
+        border-radius: 0.625rem;
+        background-color: ${(props) => props.theme["yellow-500"]};
+        color: ${(props) => props.theme.white};
+        text-transform: uppercase;
+        font-size: 0.875rem;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 1rem;
+
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+    }
   }
 
   @media ${(props) => props.theme.laptop} {
@@ -84,9 +104,6 @@ export const ContainerInputs = styled.div`
       width: 100%;
       margin-left: 0;
     }
-  }
-
-  @media ${(props) => props.theme.mobile} {
   }
 `;
 
@@ -164,6 +181,8 @@ export const PaymentContainer = styled.div`
     align-items: center;
   }
 `;
+
+export const CardContainer = styled.div``;
 
 export const Line = styled.div`
   margin: 2rem 0;

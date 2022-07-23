@@ -1,8 +1,9 @@
-import { CurrencyDollar, MapPin } from "phosphor-react";
 import { useState } from "react";
+import { CurrencyDollar, MapPin } from "phosphor-react";
 import { NavLink } from "react-router-dom";
+
 import { CartCard, PaymentCard } from "../../components";
-import { coffee } from "../../utils";
+import { useCart } from "../../hooks/useCart";
 
 import {
   CartContainer,
@@ -17,10 +18,29 @@ import {
   PaymentContainer,
   Line,
   TotalContainer,
+  CardContainer,
 } from "./style";
 
 export function Cart() {
   const [payment, setPayment] = useState("credit");
+  const { cartItems, cartItemsTotal } = useCart();
+  const deliveryPrice = 3.5;
+  const totalPrice = cartItemsTotal + deliveryPrice;
+
+  const formattedItemsTotal = cartItemsTotal.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  const formattedDeliveryPrice = deliveryPrice.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+  const formattedTotalPrice = totalPrice.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
     <CartContainer>
@@ -86,39 +106,55 @@ export function Cart() {
 
       <ProductsContainer>
         <strong>Cafés selecionados</strong>
-        <section>
-          <CartCard
-            title={coffee[0].title}
-            img={coffee[0].img}
-            value={coffee[0].value}
-          />
-          <Line />
-          <CartCard
-            title={coffee[1].title}
-            img={coffee[1].img}
-            value={coffee[1].value}
-          />
-          <Line />
+        {cartItems.length > 0 ? (
+          <section>
+            {cartItems.map((item) => (
+              <CardContainer key={item.id}>
+                <CartCard
+                  id={item.id}
+                  title={item.title}
+                  img={item.img}
+                  description={item.description}
+                  label={item.label}
+                  value={item.value}
+                  quantity={item.quantity}
+                />
+                <Line />
+              </CardContainer>
+            ))}
 
-          <TotalContainer>
-            <div>
-              <span>Total de itens</span>
-              <p>R$ 29,70</p>
-            </div>
-            <div>
-              <span>Entrega</span>
-              <p>R$ 3,50</p>
-            </div>
-            <div>
-              <strong>Total</strong>
-              <strong>R$ 33,20</strong>
-            </div>
+            <TotalContainer>
+              <div>
+                <span>Total de itens</span>
+                <p>{formattedItemsTotal}</p>
+              </div>
+              <div>
+                <span>Entrega</span>
+                <p>{formattedDeliveryPrice}</p>
+              </div>
+              <div>
+                <strong>Total</strong>
+                <strong>{formattedTotalPrice}</strong>
+              </div>
 
-            <NavLink to="/confirm">
-              <button>Confirmar pedido</button>
-            </NavLink>
-          </TotalContainer>
-        </section>
+              <NavLink to="/confirm">
+                <button>Confirmar pedido</button>
+              </NavLink>
+            </TotalContainer>
+          </section>
+        ) : (
+          <section>
+            <div>
+              <strong>Nenhum café selecionado</strong>
+              <p>
+                Volte para a página inicial e selecione quais cafés você deseja
+              </p>
+              <NavLink to="/">
+                <button>Página Inicial</button>
+              </NavLink>
+            </div>
+          </section>
+        )}
       </ProductsContainer>
     </CartContainer>
   );

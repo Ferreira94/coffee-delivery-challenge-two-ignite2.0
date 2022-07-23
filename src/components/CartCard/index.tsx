@@ -1,29 +1,41 @@
 import { Trash } from "phosphor-react";
-import { useState } from "react";
-
-import { ICardProps } from "../../interfaces";
 
 import { CardContainer, CountContainer, InfoCard } from "./style";
+import { ICartItem } from "../../contexts/CartContext";
+import { useCart } from "../../hooks/useCart";
 
-export function CartCard({ title, img, value }: ICardProps) {
-  const [count, setCount] = useState(1);
+export function CartCard({ id, title, img, value, quantity }: ICartItem) {
+  const { handleCartItemQuantity, handleRemoveCartItem } = useCart();
+
+  const formattedPrice = value.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
 
   return (
-    <CardContainer>
+    <CardContainer key={id}>
       <InfoCard>
         <img src={img} />
         <div>
           <p>{title}</p>
           <CountContainer>
             <div>
-              <span onClick={count > 1 ? () => setCount(count - 1) : () => {}}>
+              <span
+                onClick={
+                  quantity > 1
+                    ? () => handleCartItemQuantity(id, "decrement")
+                    : () => {}
+                }
+              >
                 -
               </span>
-              <strong>{count}</strong>
-              <span onClick={() => setCount(count + 1)}>+</span>
+              <strong>{quantity}</strong>
+              <span onClick={() => handleCartItemQuantity(id, "increment")}>
+                +
+              </span>
             </div>
 
-            <div>
+            <div onClick={() => handleRemoveCartItem(id)}>
               <Trash />
               <p>REMOVER</p>
             </div>
@@ -32,7 +44,7 @@ export function CartCard({ title, img, value }: ICardProps) {
       </InfoCard>
 
       <div>
-        <strong>R$ {value}</strong>
+        <strong>{formattedPrice}</strong>
       </div>
     </CardContainer>
   );

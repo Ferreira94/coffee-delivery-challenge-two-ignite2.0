@@ -45,3 +45,23 @@ export const CartContainer = styled.div`
     }
   }
 `;
+
+export const CartQuantity = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1.25rem;
+  max-height: 1.25rem;
+  border-radius: 50% !important;
+  background-color: ${(props) => props.theme["yellow-700"]} !important;
+  color: ${(props) => props.theme.white} !important;
+  font-size: 0.625rem;
+  font-weight: 700;
+  margin-left: -24px;
+  margin-top: -8px;
+
+  @media ${(props) => props.theme.mobile} {
+    max-width: 1rem;
+    max-height: 1rem;
+  }
+`;

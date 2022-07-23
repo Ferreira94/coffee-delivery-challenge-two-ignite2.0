@@ -1,7 +1,8 @@
 import { ShoppingCart } from "phosphor-react";
 import { useState } from "react";
 
-import { ICardProps } from "../../interfaces";
+import { ICoffeeProps } from "../../interfaces";
+import { useCart } from "../../hooks/useCart";
 
 import {
   CardContainer,
@@ -10,8 +11,33 @@ import {
   ButtonContainer,
 } from "./style";
 
-export function Card({ title, img, label, description, value }: ICardProps) {
-  const [count, setCount] = useState(1);
+export function Card({
+  id,
+  title,
+  img,
+  label,
+  description,
+  value,
+}: ICoffeeProps) {
+  const [quantity, setQuantity] = useState(1);
+  const { addNewProduct } = useCart();
+
+  function handleAddToCart() {
+    const coffee = {
+      id,
+      title,
+      img,
+      label,
+      description,
+      value,
+    };
+
+    const coffeeToAdd = {
+      ...coffee,
+      quantity,
+    };
+    addNewProduct(coffeeToAdd);
+  }
 
   return (
     <CardContainer>
@@ -30,16 +56,18 @@ export function Card({ title, img, label, description, value }: ICardProps) {
       <Footer>
         <div>
           <p>R$ </p>
-          <strong>{value}</strong>
+          <strong>{value}0</strong>
         </div>
         <CountContainer>
-          <span onClick={count > 1 ? () => setCount(count - 1) : () => {}}>
+          <span
+            onClick={quantity > 1 ? () => setQuantity(quantity - 1) : () => {}}
+          >
             -
           </span>
-          <p>{count}</p>
-          <span onClick={() => setCount(count + 1)}>+</span>
+          <p>{quantity}</p>
+          <span onClick={() => setQuantity(quantity + 1)}>+</span>
         </CountContainer>
-        <ButtonContainer>
+        <ButtonContainer onClick={handleAddToCart}>
           <ShoppingCart />
         </ButtonContainer>
       </Footer>

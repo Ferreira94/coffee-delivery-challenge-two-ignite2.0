@@ -5,7 +5,7 @@ export const coffee = [
     title: "Expresso tradicional",
     label: ["tradicional"],
     description: "O tradicional café feito com água quente e grãos moídos",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const coffee = [
     title: "Expresso Americano",
     label: ["tradicional"],
     description: "Expresso diluído, menos intenso que o tradicional",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const coffee = [
     title: "Expresso Cremoso",
     label: ["tradicional"],
     description: "Café expresso tradicional com espuma cremosa",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const coffee = [
     title: "Expresso Gelado",
     label: ["tradicional", "gelado"],
     description: "Bebida preparada com café expresso e cubos de gelo",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const coffee = [
     title: "Café com Leite",
     label: ["tradicional", "com leite"],
     description: "Meio a meio de expresso tradicional com leite vaporizado",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 6,
@@ -46,7 +46,7 @@ export const coffee = [
     label: ["tradicional", "com leite"],
     description:
       "Uma dose de café expresso com o dobro de leite e espuma cremosa",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const coffee = [
     label: ["tradicional", "com leite"],
     description:
       "Bebida com canela feita de doses iguais de café, leite e espuma",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 8,
@@ -64,7 +64,7 @@ export const coffee = [
     label: ["tradicional", "com leite"],
     description:
       "Café expresso misturado com um pouco de leite quente e espuma",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 9,
@@ -72,7 +72,7 @@ export const coffee = [
     title: "Mocaccino",
     label: ["tradicional", "com leite"],
     description: "Café expresso com calda de chocolate, pouco leite e espuma",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 10,
@@ -80,7 +80,7 @@ export const coffee = [
     title: "Chocolate Quente",
     label: ["especial", "com leite"],
     description: "Bebida feita com chocolate dissolvido no leite quente e café",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 11,
@@ -89,7 +89,7 @@ export const coffee = [
     label: ["especial", "alcoólico", "gelado"],
     description:
       "Drink gelado de café expresso com rum, creme de leite e hortelã",
-    value: "9,90",
+    value: 9.9,
   },
 
   {
@@ -98,7 +98,7 @@ export const coffee = [
     title: "Havaiano",
     label: ["especial"],
     description: "Bebida adocicada preparada com café e leite de coco",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 13,
@@ -106,7 +106,7 @@ export const coffee = [
     title: "Árabe",
     label: ["especial"],
     description: "Bebida preparada com grãos de café árabe e especiarias",
-    value: "9,90",
+    value: 9.9,
   },
   {
     id: 14,
@@ -114,6 +114,6 @@ export const coffee = [
     title: "Irlandês",
     label: ["especial", "alcoólico"],
     description: "Bebida a base de café, uísque irlandês, açúcar e chantilly",
-    value: "9,90",
+    value: 9.9,
   },
 ];
