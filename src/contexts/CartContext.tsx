@@ -8,6 +8,7 @@ export interface ICartItem extends ICoffeeProps {
 
 interface ICartContextType {
   cartItems: ICartItem[];
+  cartPaymentMethod: "credit" | "debit" | "money";
   cartQuantity: number;
   cartItemsTotal: number;
   addNewProduct: (coffee: ICartItem) => void;
@@ -16,6 +17,8 @@ interface ICartContextType {
     type: "increment" | "decrement"
   ) => void;
   handleRemoveCartItem: (cartItemId: number) => void;
+  cleanCart: () => void;
+  changePaymentMethod: (method: "credit" | "debit" | "money") => void;
 }
 
 interface ICartContextProviderProps {
@@ -27,6 +30,9 @@ const COFFEE_ITEMS_STORAGE_KEY = "coffeeDelivery:cartItems:1.0.0";
 export const CartContext = createContext({} as ICartContextType);
 
 export function CartContextProvider({ children }: ICartContextProviderProps) {
+  const [cartPaymentMethod, setCartPaymentMethod] = useState<
+    "credit" | "debit" | "money"
+  >("credit");
   const [cartItems, setCartItems] = useState<ICartItem[]>(() => {
     const storagedCartItems = localStorage.getItem(COFFEE_ITEMS_STORAGE_KEY);
 
@@ -90,6 +96,14 @@ export function CartContextProvider({ children }: ICartContextProviderProps) {
     setCartItems(newCart);
   }
 
+  function cleanCart() {
+    setCartItems([]);
+  }
+
+  function changePaymentMethod(method: "credit" | "debit" | "money") {
+    setCartPaymentMethod(method);
+  }
+
   useEffect(() => {
     localStorage.setItem(COFFEE_ITEMS_STORAGE_KEY, JSON.stringify(cartItems));
   }, [cartItems]);
@@ -100,9 +114,12 @@ export function CartContextProvider({ children }: ICartContextProviderProps) {
         cartItems,
         cartQuantity,
         cartItemsTotal,
+        cartPaymentMethod,
         addNewProduct,
         handleCartItemQuantity,
         handleRemoveCartItem,
+        changePaymentMethod,
+        cleanCart,
       }}
     >
       {children}

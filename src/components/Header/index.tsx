@@ -17,7 +17,7 @@ export function Header() {
       <CartContainer>
         <div>
           <MapPin size={22} />
-          <p>Jaguarão, RS</p>
+          <p>Porto Alegre, RS</p>
         </div>
 
         <NavLink to="/cart">
