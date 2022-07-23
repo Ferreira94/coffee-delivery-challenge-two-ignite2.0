@@ -24,10 +24,11 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org)
+- [Vite](https://vitejs.dev/)
 - [Styled Components](https://styled-components.com/)
+- [React Hook Form](https://react-hook-form.com/)
 - [Immer](https://immerjs.github.io/immer/)
 - [Zod](https://github.com/colinhacks/zod)
-- [React Hook Form](https://react-hook-form.com/)
 
 ## 🛠️ Executando
 
